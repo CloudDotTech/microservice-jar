@@ -1,0 +1,33 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo install
+    finally:
+      - echo finally install
+
+  pre_build:
+    commands:
+      - echo pre_build
+    finally:
+      - echo finally pre_build
+
+  build:
+    commands:
+      - echo build
+      - mvn clean package
+    finally:
+      - echo finally build
+
+  post_build:
+    commands:
+      - echo post_build
+    finally:
+      - echo finally post_build
+
+artifacts:
+  files:
+    - echo location artifacts
+    - target/microservice-jar.jar
+  discard-path: yes
